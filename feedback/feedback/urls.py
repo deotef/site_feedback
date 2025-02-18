@@ -16,9 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from users.views import *
 
+admin.site.site_header = "Панель администрирования"
+#admin.site.index_title = "index_title"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls')),
+
+    #path('survey/', include('survey.urls')),
+    path('users/', include('users.urls')),
+    path('api/v1/drf-auth/', include('rest_framework.urls')),
+    path('api/v1/users', CustomUserAPIList.as_view()),
+
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
