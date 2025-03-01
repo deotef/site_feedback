@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h2>Меню</h2>
+    <p><a href="{% url 'loginform' %}">Войти</a></p>
+    <p><a href="{% url 'registr' %}">Регистрация</a></p>
+
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'profile' user.id %}">Профиль</a></p>
+    {% endif %}
+
+</body>
+</html>

@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
+    'drf_yasg',
+
 ]
 
 MIDDLEWARE = [
@@ -155,7 +159,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ]
+    ],
 }
 
 LOGGING = {

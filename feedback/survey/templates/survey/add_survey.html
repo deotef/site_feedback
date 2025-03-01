@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Создание опросника</h2>
+    <form method="post">
+    {% csrf_token %}
+        <!-- Основная форма (Survey) -->
+        {{ form.as_p }}
+
+        <!-- Формсет для вопросов (Questions) -->
+        {{ formset.management_form }}
+        <div>
+            {% for subform in formset %}
+                <div class="question-form">
+                    {{ subform.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+    <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

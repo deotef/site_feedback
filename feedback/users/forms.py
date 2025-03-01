@@ -6,7 +6,7 @@ from users.models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
 
 class UserRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(required=True, )
 
     class Meta:
         model = CustomUser
@@ -14,9 +14,9 @@ class UserRegistrationForm(UserCreationForm):
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-
         if CustomUser.objects.filter(email=email).exists():
             raise ValidationError("Пользователь с таким email уже зарегистрирован.")
+        return email
 
     def save(self, commit=True):
         user = super(UserRegistrationForm, self).save(commit=False)
@@ -27,7 +27,7 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserLoginForm(forms.Form):
-    login = forms.CharField(
+    username = forms.CharField(
         label="Имя пользователя",
         max_length=255,
         widget=forms.TextInput(attrs={'placeholder': 'Введите имя пользователя'})
