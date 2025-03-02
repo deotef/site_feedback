@@ -19,7 +19,17 @@ class CustomUserSerializer(serializers.ModelSerializer):
             last_name=validated_data.get('last_name', ''),
         )
         return user
-
+# {
+#     "username": "",
+#     "password": "",
+#     "email": "",
+#     "first_name": "",
+#     "last_name": "",
+#     "role": null,
+#     "is_superuser": false,
+#     "is_active": false,
+#     "is_staff": false
+# }
 
 class CustomUserListSerializer(serializers.ModelSerializer):
     class Meta:

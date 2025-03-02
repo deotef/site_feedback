@@ -13,7 +13,6 @@ class CustomUserAPIList(ListAPIView):
 
 class CustomUserAPIPost(CreateAPIView):
     serializer_class = serializers.CustomUserSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly, )
 
 # class CustomUserRegistrationView(APIView): 2 способ
 #     def post(self, request):

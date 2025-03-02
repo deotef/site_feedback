@@ -54,14 +54,14 @@ class SurveySerializer(serializers.ModelSerializer):
 #     "description": "Этот опрос поможет нам улучшить Django.",
 #     "user_receiver": [2, 3],  # Список ID пользователей-получателей
 #     "questions": [
-#         {
-#             "content": "Как вам Django?",
-#             "type": 1  # ID типа вопроса
-#         },
-#         {
-#             "content": "Как часто вы используете Django?",
-#             "type": 2
-#         }
+        {
+            "content": "Как вам Django?",
+            "type": 1  # ID типа вопроса
+        },
+        {
+            "content": "Как часто вы используете Django?",
+            "type": 2
+        }
 #     ]
 # }
 
@@ -69,7 +69,7 @@ class SurveySerializer(serializers.ModelSerializer):
 class QuestionAnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionAnswers
-        fields = ['id', 'question', 'value']
+        fields = ['id', 'question', 'value', 'user_return_id']
 
     def create(self, validated_data):
         # Получаем текущего пользователя из контекста
@@ -83,6 +83,8 @@ class QuestionAnswerSerializer(serializers.ModelSerializer):
             user_return=user  # Автоматически устанавливаем текущего пользователя
         )
         return answer
+
+
 
 # Сервер получает объект опросника (Survey) по ID из URL (kwargs.get('pk')).
 # Фильтрует вопросы, связанные с этим опросником (survey.questions.all()).
