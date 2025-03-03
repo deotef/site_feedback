@@ -19,7 +19,7 @@ Django-приложение для создания и прохождения о
 
 1. **Клонируйте репозиторий:**
    ```bash
-   git clone https://github.com/deotef/test_repo1
+   git clone https://github.com/deotef/site_feedback
    ```
 
 2. **Перейдите в директорию проекта:**
